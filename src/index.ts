@@ -89,10 +89,6 @@ const Simulacion = (NA: number, NB: number, NC: number, TF: number) => {
       PTOC.map((v) => formatNumber(v) + "%")
     );
 
-    console.log("STS - STLL - STA ", STS, STLL, STA);
-
-    console.log("NTA + NTB + NTC ", NTA, NTB, NTC);
-
     const PES = (STS - STLL - STA) / (NTA + NTB + NTC);
 
     console.log("Promedio de espera en el Sistema: ", formatTime(PES));
@@ -106,8 +102,6 @@ const Simulacion = (NA: number, NB: number, NC: number, TF: number) => {
       "Porcentaje de Operaciones C derivadas a B: ",
       formatNumber(PCB) + "%"
     );
-
-    console.log("NTC & NTCB ", NTC, NTCB);
 
     const PEO = (NTESP * 100) / (NTA + NTB + NTC);
 
