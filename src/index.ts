@@ -471,6 +471,8 @@ const Simulacion = (NA: number, NB: number, NC: number, TF: number) => {
       TPSB[j] = H_V;
     }
 
+    EncolarA();
+
     STS += T;
   };
 
@@ -522,6 +524,11 @@ const Simulacion = (NA: number, NB: number, NC: number, TF: number) => {
   };
 
   const Empezar = (): void => {
+    if (NA === 0 || NB === 0 || NC === 0)
+      throw new Error("No puede haber servicios con 0 instancias");
+
+    if (TF === 0) throw new Error("El tiempo de simulacion no puede ser 0");
+
     let iteraciones = 0;
 
     do {
@@ -555,12 +562,12 @@ const Simulacion = (NA: number, NB: number, NC: number, TF: number) => {
 const TF = 31536000;
 
 Simulacion(1, 1, 1, TF)();
-Simulacion(1, 1, 0, TF)();
-Simulacion(2, 2, 0, TF)();
+Simulacion(1, 1, 1, TF)();
+Simulacion(2, 2, 1, TF)();
 Simulacion(2, 2, 1, TF)();
 Simulacion(2, 3, 1, TF)();
-Simulacion(2, 3, 0, TF)();
+Simulacion(2, 3, 1, TF)();
 Simulacion(3, 2, 1, TF)();
-Simulacion(3, 2, 0, TF)();
+Simulacion(3, 2, 1, TF)();
 Simulacion(3, 3, 1, TF)();
-Simulacion(3, 3, 0, TF)();
+Simulacion(3, 3, 1, TF)();
